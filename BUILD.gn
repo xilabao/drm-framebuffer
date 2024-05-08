@@ -1,0 +1,26 @@
+import("//build/ohos.gni")
+
+ohos_executable("drm-framebuffer") {
+  sources = [
+    "main.c",
+    "framebuffer.c",
+  ]
+  include_dirs = [
+    ".",
+    "//third_party/libdrm",
+    "//third_party/libdrm/include",
+  ]
+  cflags = [
+    "-Wno-error=implicit-function-declaration",
+    "-Wno-implicit-fallthrough",
+  ]
+  deps = [
+    "//third_party/libdrm:libdrm",
+  ]
+  install_enable = true
+  part_name = "libdrm"
+  subsystem_name = "thirdparty"
+  install_images = [
+    "system",
+  ]
+}
